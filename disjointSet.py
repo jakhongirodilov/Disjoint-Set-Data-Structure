@@ -28,3 +28,16 @@ class ArrayDisjointSet:
 
     def is_same_set(self, x, y):
         return self.find(x) == self.find(y)
+
+    def display_sets(self):
+        sets = {}
+        for i in range(len(self.parent)):
+            root = self.find(i)
+            if root not in sets:
+                sets[root] = [i]
+            else:
+                sets[root].append(i)
+    
+        for root, elements in sets.items():
+            print("Set {}: {}".format(root, elements))
+
